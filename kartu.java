@@ -4,6 +4,8 @@ import java.util.Random;
 public class kartu {
 	
 	public static void main(String[] args){
+		int saldo = 1000;
+        System.out.println("koin lu: " + saldo);
 		Scanner input = new Scanner(System.in);
 		String statusMain = "lanjut";
 
@@ -81,17 +83,30 @@ public class kartu {
 					}
 				}
 			}
+	
+		boolean statusMenang = false;
 			if (kartuku == 21) {
 				System.out.println("Gokil");
+				statusMenang = true;
 			} else if (kartuku > 21) {
 				System.out.println("Bust! Kebanyakan (" + kartuku + "), lu kalah telak wkwk.");
+				statusMenang = false;
 			} else if (kartuku >= lawan) {
 				System.out.println("Anjay menang!");
+				statusMenang = true;
 			} else {
 				System.out.println("Duh bangke, kalah");
+				statusMenang = false;
 			}
 
 			System.out.println("Kartu lawan: " + lawan + " (dari " + a + " dan "+ b + ")");
+			if (statusMenang) {
+				saldo += 500;
+				System.out.println("koin lu bertambah jadi: " + saldo);
+			} else {
+				saldo -= 500;
+				System.out.println("Sisa saldo koin lu: " + saldo);
+			}
 
 			System.out.println("\nKetik 'lanjut' buat main lagi, atau ketik apa aja terserah buat udahan:");
 			statusMain = input.next();
