@@ -21,7 +21,6 @@ public class kartu {
 			y = kartu.nextInt(10) + 1;
 
 			lawan = a + b;
-			System.out.println("\n=== MULAI GAME BARU ===");
 			System.out.println("kartu pertama: " + x +  "\nkartu kedua: " + y);
 			kartuku = x + y;
 			System.out.println("kartu kamu sekarang: " + kartuku);
@@ -92,10 +91,10 @@ public class kartu {
 				System.out.println("Bust! Kebanyakan (" + kartuku + "), lu kalah telak wkwk.");
 				statusMenang = false;
 			} else if (kartuku >= lawan) {
-				System.out.println("Anjay menang!");
+				System.out.println("duh bangke kalah");
 				statusMenang = true;
 			} else {
-				System.out.println("Duh bangke, kalah");
+				System.out.println("Anjay menang");
 				statusMenang = false;
 			}
 
@@ -107,9 +106,13 @@ public class kartu {
 				saldo -= 500;
 				System.out.println("Sisa saldo koin lu: " + saldo);
 			}
-
-			System.out.println("\nKetik 'lanjut' buat main lagi, atau ketik apa aja terserah buat udahan:");
-			statusMain = input.next();
+			if (saldo >0){
+				System.out.println("\nKetik 'lanjut' buat main lagi, atau ketik apa aja terserah buat udahan:");
+				statusMain = input.next();
+			}else {
+					System.out.println("koin lu habis kocak");
+					statusMain = "false";
+			}
 		}
 
 		System.out.println("Game selesai");
